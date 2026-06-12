@@ -41,3 +41,9 @@ export function listDatasets(query: ListQuery = {}): Paginated<Dataset> {
   items = sortBy(items, query.sort, query.order);
   return paginate(items, query.page ?? 1, query.pageSize ?? 20);
 }
+
+export function getDataset(id: string): Dataset {
+  const found = repo.findById(id);
+  if (!found) throw new NotFoundError(`dataset ${id} not found`);
+  return found;
+}
