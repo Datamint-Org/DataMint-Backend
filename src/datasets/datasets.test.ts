@@ -77,3 +77,19 @@ describe("GET /api/v1/datasets", () => {
     expect(res.body.datasets.every((d: { category: string }) => d.category === "energy")).toBe(true);
   });
 });
+
+describe("POST /api/v1/datasets", () => {
+  it("creates a dataset and returns 201", async () => {
+    const res = await request(app)
+      .post("/api/v1/datasets")
+      .send({ name: "HTTP Created", providerId: "p-http", storageHash: "QmHttp" });
+    expect(res.status).toBe(201);
+    expect(res.body.id).toBeDefined();
+  });
+
+  it("rejects invalid payloads with 400", async () => {
+    const res = await request(app).post("/api/v1/datasets").send({ name: "x" });
+    expect(res.status).toBe(400);
+    expect(res.body.error).toBe("ValidationError");
+  });
+});
