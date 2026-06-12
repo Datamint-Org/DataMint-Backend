@@ -13,3 +13,4 @@ datasetsRouter.get("/", listHandler);
 datasetsRouter.get("/:id", getHandler);
 datasetsRouter.post("/", createHandler);
 datasetsRouter.patch("/:id", updateHandler);
+datasetsRouter.delete("/:id", deleteHandler);
