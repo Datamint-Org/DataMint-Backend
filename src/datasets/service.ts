@@ -47,3 +47,10 @@ export function getDataset(id: string): Dataset {
   if (!found) throw new NotFoundError(`dataset ${id} not found`);
   return found;
 }
+
+export function updateDataset(id: string, input: UpdateDatasetInput): Dataset {
+  const patch = validateUpdate(input);
+  const updated = repo.update(id, { ...patch, updatedAt: new Date().toISOString() });
+  if (!updated) throw new NotFoundError(`dataset ${id} not found`);
+  return updated;
+}
