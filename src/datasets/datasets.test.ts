@@ -23,3 +23,15 @@ describe("validation", () => {
     expect(v.tags).toEqual([]);
   });
 });
+
+describe("pagination", () => {
+  it("clampPageSize caps to the maximum", () => {
+    expect(clampPageSize(10_000)).toBe(100);
+  });
+
+  it("paginate computes totalPages", () => {
+    const page = paginate([1, 2, 3, 4, 5], 1, 2);
+    expect(page.totalPages).toBe(3);
+    expect(page.items).toEqual([1, 2]);
+  });
+});
