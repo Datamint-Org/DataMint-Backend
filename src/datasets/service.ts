@@ -32,3 +32,12 @@ export function createDataset(input: CreateDatasetInput): Dataset {
   };
   return repo.insert(dataset);
 }
+
+export function listDatasets(query: ListQuery = {}): Paginated<Dataset> {
+  let items = repo.findAll();
+  items = byCategory(items, query.category);
+  items = byProvider(items, query.providerId);
+  items = bySearch(items, query.search);
+  items = sortBy(items, query.sort, query.order);
+  return paginate(items, query.page ?? 1, query.pageSize ?? 20);
+}
