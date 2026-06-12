@@ -34,3 +34,19 @@ datasets.push({
   createdAt: "2025-01-11T14:30:00.000Z",
   updatedAt: "2025-01-11T14:30:00.000Z",
 });
+
+datasets.push({
+  id: "genomics-panel",
+  name: "Population Genomics Panel",
+  description: "Anonymized variant calls across a 50,000 person reference cohort.",
+  providerId: "provider-biocore",
+  category: "health",
+  storageHash: "QmHealth003",
+  priceXlm: 980,
+  sizeBytes: 88_000_000_000,
+  rowCount: 1_900_000,
+  tags: ["health", "genomics", "research"],
+  licensed: false,
+  createdAt: "2025-01-18T08:15:00.000Z",
+  updatedAt: "2025-01-18T08:15:00.000Z",
+});
