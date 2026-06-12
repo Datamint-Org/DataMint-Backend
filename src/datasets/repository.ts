@@ -13,3 +13,10 @@ export function findAll(): Dataset[] {
 export function findById(id: string): Dataset | undefined {
   return datasets.find((d) => d.id === id);
 }
+
+export function update(id: string, patch: Partial<Dataset>): Dataset | undefined {
+  const existing = datasets.find((d) => d.id === id);
+  if (!existing) return undefined;
+  Object.assign(existing, patch);
+  return existing;
+}
