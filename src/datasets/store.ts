@@ -82,3 +82,19 @@ datasets.push({
   createdAt: "2025-02-02T16:20:00.000Z",
   updatedAt: "2025-02-02T16:20:00.000Z",
 });
+
+datasets.push({
+  id: "iot-sensors",
+  name: "Industrial IoT Sensor Stream",
+  description: "Vibration and temperature telemetry from factory floor equipment.",
+  providerId: "provider-sensorhub",
+  category: "iot",
+  storageHash: "QmIot006",
+  priceXlm: 175,
+  sizeBytes: 3_400_000_000,
+  rowCount: 76_000_000,
+  tags: ["iot", "sensors", "industrial"],
+  licensed: true,
+  createdAt: "2025-02-09T07:05:00.000Z",
+  updatedAt: "2025-02-09T07:05:00.000Z",
+});
