@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import { requestLogger } from "./middleware/requestLogger";
+import { errorHandler } from "./middleware/errorHandler";
 import { datasetsRouter } from "./datasets/routes";
 
 const app = express();
@@ -13,5 +14,7 @@ app.get("/health", (_req: Request, res: Response) => {
 });
 
 app.use("/api/v1/datasets", datasetsRouter);
+
+app.use(errorHandler);
 
 export default app;
