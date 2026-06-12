@@ -46,3 +46,19 @@ describe("filters", () => {
     expect(byCategory(datasets, "finance").every((d) => d.category === "finance")).toBe(true);
   });
 });
+
+describe("service", () => {
+  it("createDataset assigns an id and timestamps", () => {
+    const created = service.createDataset({
+      name: "Service Created",
+      providerId: "p-svc",
+      storageHash: "QmSvc",
+    });
+    expect(created.id).toMatch(/^ds_/);
+    expect(service.getDataset(created.id).name).toBe("Service Created");
+  });
+
+  it("getDataset throws for missing ids", () => {
+    expect(() => service.getDataset("does-not-exist")).toThrow();
+  });
+});
