@@ -46,3 +46,13 @@ export interface UpdateDatasetInput {
   tags?: string[];
   licensed?: boolean;
 }
+
+export interface ListQuery {
+  page?: number;
+  pageSize?: number;
+  category?: DatasetCategory;
+  providerId?: string;
+  search?: string;
+  sort?: "name" | "price" | "createdAt";
+  order?: "asc" | "desc";
+}
