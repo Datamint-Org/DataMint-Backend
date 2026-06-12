@@ -41,3 +41,10 @@ export function assertPrice(price: unknown): number {
   }
   return price;
 }
+
+export function assertStorageHash(hash: unknown): string {
+  if (typeof hash !== "string" || hash.trim().length === 0) {
+    throw new ValidationError("storageHash is required");
+  }
+  return hash.trim();
+}
