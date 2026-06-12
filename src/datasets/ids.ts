@@ -5,3 +5,7 @@ export function nextDatasetId(): string {
   counter += 1;
   return `ds_${counter.toString(36).padStart(4, "0")}`;
 }
+
+export function resetIdCounter(): void {
+  counter = 0;
+}
