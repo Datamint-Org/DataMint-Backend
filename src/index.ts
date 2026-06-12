@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import { requestLogger } from "./middleware/requestLogger";
+import { datasetsRouter } from "./datasets/routes";
 
 const app = express();
 app.use(cors());
@@ -11,8 +12,6 @@ app.get("/health", (_req: Request, res: Response) => {
   res.json({ status: "ok", service: "datamint-backend" });
 });
 
-app.get("/api/v1/datasets", (_req: Request, res: Response) => {
-  res.json({ datasets: [], total: 0 });
-});
+app.use("/api/v1/datasets", datasetsRouter);
 
 export default app;
