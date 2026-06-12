@@ -18,3 +18,19 @@ datasets.push({
   createdAt: "2025-01-04T09:00:00.000Z",
   updatedAt: "2025-01-04T09:00:00.000Z",
 });
+
+datasets.push({
+  id: "fx-markets",
+  name: "FX Tick Data",
+  description: "Sub-second foreign exchange tick prices for 28 major currency pairs.",
+  providerId: "provider-quantfeed",
+  category: "finance",
+  storageHash: "QmFinance002",
+  priceXlm: 540,
+  sizeBytes: 12_300_000_000,
+  rowCount: 412_000_000,
+  tags: ["finance", "forex", "ticks"],
+  licensed: true,
+  createdAt: "2025-01-11T14:30:00.000Z",
+  updatedAt: "2025-01-11T14:30:00.000Z",
+});
