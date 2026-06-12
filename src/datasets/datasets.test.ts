@@ -93,3 +93,11 @@ describe("POST /api/v1/datasets", () => {
     expect(res.body.error).toBe("ValidationError");
   });
 });
+
+describe("missing resources", () => {
+  it("GET unknown id returns 404", async () => {
+    const res = await request(app).get("/api/v1/datasets/nope");
+    expect(res.status).toBe(404);
+    expect(res.body.error).toBe("NotFoundError");
+  });
+});
