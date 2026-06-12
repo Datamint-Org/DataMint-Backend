@@ -48,3 +48,17 @@ export function assertStorageHash(hash: unknown): string {
   }
   return hash.trim();
 }
+
+export function validateCreate(input: CreateDatasetInput) {
+  return {
+    name: assertName(input.name),
+    providerId: assertProviderId(input.providerId),
+    category: assertCategory(input.category),
+    priceXlm: assertPrice(input.priceXlm),
+    storageHash: assertStorageHash(input.storageHash),
+    description: typeof input.description === "string" ? input.description : "",
+    sizeBytes: typeof input.sizeBytes === "number" ? input.sizeBytes : 0,
+    rowCount: typeof input.rowCount === "number" ? input.rowCount : 0,
+    tags: Array.isArray(input.tags) ? input.tags.map(String) : [],
+  };
+}
