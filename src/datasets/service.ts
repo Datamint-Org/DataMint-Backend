@@ -54,3 +54,8 @@ export function updateDataset(id: string, input: UpdateDatasetInput): Dataset {
   if (!updated) throw new NotFoundError(`dataset ${id} not found`);
   return updated;
 }
+
+export function deleteDataset(id: string): void {
+  const ok = repo.remove(id);
+  if (!ok) throw new NotFoundError(`dataset ${id} not found`);
+}
