@@ -9,3 +9,7 @@ export function insert(dataset: Dataset): Dataset {
 export function findAll(): Dataset[] {
   return [...datasets];
 }
+
+export function findById(id: string): Dataset | undefined {
+  return datasets.find((d) => d.id === id);
+}
