@@ -27,3 +27,7 @@ export function remove(id: string): boolean {
   datasets.splice(idx, 1);
   return true;
 }
+
+export function count(): number {
+  return datasets.length;
+}
