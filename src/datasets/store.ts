@@ -50,3 +50,19 @@ datasets.push({
   createdAt: "2025-01-18T08:15:00.000Z",
   updatedAt: "2025-01-18T08:15:00.000Z",
 });
+
+datasets.push({
+  id: "energy-grid",
+  name: "Smart Grid Load Curves",
+  description: "Minute-level electricity demand from 1,200 distribution substations.",
+  providerId: "provider-gridco",
+  category: "energy",
+  storageHash: "QmEnergy004",
+  priceXlm: 310,
+  sizeBytes: 6_100_000_000,
+  rowCount: 54_000_000,
+  tags: ["energy", "grid", "demand"],
+  licensed: true,
+  createdAt: "2025-01-25T11:45:00.000Z",
+  updatedAt: "2025-01-25T11:45:00.000Z",
+});
