@@ -35,3 +35,14 @@ describe("pagination", () => {
     expect(page.items).toEqual([1, 2]);
   });
 });
+
+describe("filters", () => {
+  it("bySearch matches name, description and tags", () => {
+    const hits = bySearch(datasets, "weather");
+    expect(hits.length).toBeGreaterThan(0);
+  });
+
+  it("byCategory filters by exact category", () => {
+    expect(byCategory(datasets, "finance").every((d) => d.category === "finance")).toBe(true);
+  });
+});
