@@ -20,3 +20,10 @@ export function update(id: string, patch: Partial<Dataset>): Dataset | undefined
   Object.assign(existing, patch);
   return existing;
 }
+
+export function remove(id: string): boolean {
+  const idx = datasets.findIndex((d) => d.id === id);
+  if (idx === -1) return false;
+  datasets.splice(idx, 1);
+  return true;
+}
