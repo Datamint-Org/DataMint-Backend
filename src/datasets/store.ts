@@ -66,3 +66,19 @@ datasets.push({
   createdAt: "2025-01-25T11:45:00.000Z",
   updatedAt: "2025-01-25T11:45:00.000Z",
 });
+
+datasets.push({
+  id: "urban-mobility",
+  name: "Urban Mobility Traces",
+  description: "GPS mobility traces from shared mobility fleets across 60 cities.",
+  providerId: "provider-mobilix",
+  category: "mobility",
+  storageHash: "QmMobility005",
+  priceXlm: 220,
+  sizeBytes: 9_700_000_000,
+  rowCount: 130_000_000,
+  tags: ["mobility", "gps", "cities"],
+  licensed: false,
+  createdAt: "2025-02-02T16:20:00.000Z",
+  updatedAt: "2025-02-02T16:20:00.000Z",
+});
