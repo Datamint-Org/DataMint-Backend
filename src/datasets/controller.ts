@@ -41,3 +41,11 @@ export function createHandler(req: Request, res: Response, next: NextFunction): 
     next(err);
   }
 }
+
+export function updateHandler(req: Request, res: Response, next: NextFunction): void {
+  try {
+    res.json(service.updateDataset(req.params.id, req.body));
+  } catch (err) {
+    next(err);
+  }
+}
