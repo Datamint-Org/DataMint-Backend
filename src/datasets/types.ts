@@ -37,3 +37,12 @@ export interface CreateDatasetInput {
   rowCount?: number;
   tags?: string[];
 }
+
+export interface UpdateDatasetInput {
+  name?: string;
+  description?: string;
+  category?: DatasetCategory;
+  priceXlm?: number;
+  tags?: string[];
+  licensed?: boolean;
+}
