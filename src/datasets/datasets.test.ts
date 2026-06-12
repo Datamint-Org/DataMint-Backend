@@ -62,3 +62,18 @@ describe("service", () => {
     expect(() => service.getDataset("does-not-exist")).toThrow();
   });
 });
+
+describe("GET /api/v1/datasets", () => {
+  it("returns a datasets array with pagination metadata", async () => {
+    const res = await request(app).get("/api/v1/datasets");
+    expect(res.status).toBe(200);
+    expect(Array.isArray(res.body.datasets)).toBe(true);
+    expect(res.body).toHaveProperty("totalPages");
+  });
+
+  it("supports category filtering", async () => {
+    const res = await request(app).get("/api/v1/datasets?category=energy");
+    expect(res.status).toBe(200);
+    expect(res.body.datasets.every((d: { category: string }) => d.category === "energy")).toBe(true);
+  });
+});
