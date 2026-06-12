@@ -9,3 +9,19 @@ export type DatasetCategory =
   | "social"
   | "iot"
   | "other";
+
+export interface Dataset {
+  id: string;
+  name: string;
+  description: string;
+  providerId: string;
+  category: DatasetCategory;
+  storageHash: string;
+  priceXlm: number;
+  sizeBytes: number;
+  rowCount: number;
+  tags: string[];
+  licensed: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
