@@ -18,3 +18,10 @@ export function assertName(name: unknown): string {
   }
   return name.trim();
 }
+
+export function assertProviderId(providerId: unknown): string {
+  if (typeof providerId !== "string" || providerId.trim().length === 0) {
+    throw new ValidationError("providerId is required");
+  }
+  return providerId.trim();
+}
