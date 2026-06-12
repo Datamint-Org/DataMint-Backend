@@ -25,3 +25,11 @@ export function assertProviderId(providerId: unknown): string {
   }
   return providerId.trim();
 }
+
+export function assertCategory(category: unknown): DatasetCategory {
+  if (category === undefined) return "other";
+  if (typeof category !== "string" || !CATEGORIES.includes(category as DatasetCategory)) {
+    throw new ValidationError(`category must be one of: ${CATEGORIES.join(", ")}`);
+  }
+  return category as DatasetCategory;
+}
