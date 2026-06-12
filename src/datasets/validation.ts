@@ -33,3 +33,11 @@ export function assertCategory(category: unknown): DatasetCategory {
   }
   return category as DatasetCategory;
 }
+
+export function assertPrice(price: unknown): number {
+  if (price === undefined) return 0;
+  if (typeof price !== "number" || Number.isNaN(price) || price < 0) {
+    throw new ValidationError("priceXlm must be a non-negative number");
+  }
+  return price;
+}
