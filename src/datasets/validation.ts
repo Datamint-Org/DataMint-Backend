@@ -62,3 +62,16 @@ export function validateCreate(input: CreateDatasetInput) {
     tags: Array.isArray(input.tags) ? input.tags.map(String) : [],
   };
 }
+
+export function validateUpdate(input: UpdateDatasetInput): UpdateDatasetInput {
+  const patch: UpdateDatasetInput = {};
+  if (input.name !== undefined) patch.name = assertName(input.name);
+  if (input.category !== undefined) patch.category = assertCategory(input.category);
+  if (input.priceXlm !== undefined) patch.priceXlm = assertPrice(input.priceXlm);
+  if (input.description !== undefined) patch.description = String(input.description);
+  if (input.tags !== undefined) {
+    patch.tags = Array.isArray(input.tags) ? input.tags.map(String) : [];
+  }
+  if (input.licensed !== undefined) patch.licensed = Boolean(input.licensed);
+  return patch;
+}
