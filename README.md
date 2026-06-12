@@ -5,8 +5,24 @@ API gateway and services for **DataMint**: dataset minting, access control, and 
 ## What’s in this repo
 
 - REST API with health and datasets endpoints
+- In-memory dataset catalog with CRUD, validation, pagination, search and filtering
 - TypeScript, Jest for tests, ESLint
 - Ready for Stellar Horizon integration and dataset/license logic
+
+## Datasets API
+
+Base path: `/api/v1/datasets`
+
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET` | `/` | List datasets. Supports `page`, `pageSize`, `category`, `providerId`, `search`, `sort` (`name`\|`price`\|`createdAt`), `order` (`asc`\|`desc`). |
+| `GET` | `/:id` | Fetch a single dataset by id. |
+| `POST` | `/` | Create a dataset. Requires `name`, `providerId`, `storageHash`. |
+| `PATCH` | `/:id` | Update mutable fields of a dataset. |
+| `DELETE` | `/:id` | Remove a dataset. |
+
+List responses include `datasets`, `total`, `page`, `pageSize` and `totalPages`.
+Validation failures return `400`, unknown ids return `404`.
 
 ## Prerequisites
 
