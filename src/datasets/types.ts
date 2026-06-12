@@ -56,3 +56,11 @@ export interface ListQuery {
   sort?: "name" | "price" | "createdAt";
   order?: "asc" | "desc";
 }
+
+export interface Paginated<T> {
+  items: T[];
+  total: number;
+  page: number;
+  pageSize: number;
+  totalPages: number;
+}
