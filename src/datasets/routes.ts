@@ -8,3 +8,5 @@ import {
 } from "./controller";
 
 export const datasetsRouter = Router();
+
+datasetsRouter.get("/", listHandler);
