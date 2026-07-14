@@ -31,3 +31,7 @@ export function remove(id: string): boolean {
   reviews.splice(idx, 1);
   return true;
 }
+
+export function count(): number {
+  return reviews.length;
+}
