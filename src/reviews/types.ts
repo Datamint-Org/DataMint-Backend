@@ -20,7 +20,7 @@ export interface CreateReviewInput {
 }
 
 export interface UpdateReviewInput {
-  rating?: number;
+  rating?: Rating;
   comment?: string;
 }
 
