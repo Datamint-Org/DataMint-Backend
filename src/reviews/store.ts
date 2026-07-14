@@ -12,3 +12,13 @@ reviews.push({
   createdAt: "2025-01-10T10:00:00.000Z",
   updatedAt: "2025-01-10T10:00:00.000Z",
 });
+
+reviews.push({
+  id: "rv_0002",
+  datasetId: "global-weather",
+  reviewerId: "user-jchen",
+  rating: 4,
+  comment: "Great historical depth, though a few stations have gaps in early 2024.",
+  createdAt: "2025-01-15T09:30:00.000Z",
+  updatedAt: "2025-01-15T09:30:00.000Z",
+});
