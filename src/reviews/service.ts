@@ -46,3 +46,8 @@ export function updateReview(id: string, input: UpdateReviewInput): Review {
   if (!updated) throw new NotFoundError(`review ${id} not found`);
   return updated;
 }
+
+export function deleteReview(id: string): void {
+  const ok = repo.remove(id);
+  if (!ok) throw new NotFoundError(`review ${id} not found`);
+}
