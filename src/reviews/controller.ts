@@ -58,3 +58,11 @@ export function deleteHandler(req: Request, res: Response, next: NextFunction): 
     next(err);
   }
 }
+
+export function averageHandler(req: Request, res: Response, next: NextFunction): void {
+  try {
+    res.json(service.averageRatingForDataset(req.params.datasetId));
+  } catch (err) {
+    next(err);
+  }
+}
