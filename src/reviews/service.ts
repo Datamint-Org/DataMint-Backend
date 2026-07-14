@@ -51,3 +51,12 @@ export function deleteReview(id: string): void {
   const ok = repo.remove(id);
   if (!ok) throw new NotFoundError(`review ${id} not found`);
 }
+
+export function averageRatingForDataset(datasetId: string): AverageRating {
+  const dataset = datasetsRepo.findById(datasetId);
+  if (!dataset) throw new NotFoundError(`dataset ${datasetId} not found`);
+  const items = repo.findByDatasetId(datasetId);
+  const count = items.length;
+  const average = count === 0 ? 0 : items.reduce((sum, r) => sum + r.rating, 0) / count;
+  return { datasetId, average: Math.round(average * 100) / 100, count };
+}
