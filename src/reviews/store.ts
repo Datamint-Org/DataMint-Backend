@@ -42,3 +42,13 @@ reviews.push({
   createdAt: "2025-01-25T08:45:00.000Z",
   updatedAt: "2025-01-25T08:45:00.000Z",
 });
+
+reviews.push({
+  id: "rv_0005",
+  datasetId: "energy-grid",
+  reviewerId: "user-tkim",
+  rating: 4,
+  comment: "Minute-level load curves were exactly what we needed for demand forecasting.",
+  createdAt: "2025-02-01T12:15:00.000Z",
+  updatedAt: "2025-02-01T12:15:00.000Z",
+});
