@@ -21,3 +21,13 @@ export function assertRating(rating: unknown): Rating {
   }
   return rating as Rating;
 }
+
+const MAX_COMMENT_LENGTH = 2000;
+
+export function assertComment(comment: unknown): string {
+  if (comment === undefined) return "";
+  if (typeof comment !== "string" || comment.length > MAX_COMMENT_LENGTH) {
+    throw new ValidationError(`comment must be a string of at most ${MAX_COMMENT_LENGTH} characters`);
+  }
+  return comment;
+}
