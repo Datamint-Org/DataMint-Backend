@@ -20,3 +20,15 @@ describe("validation", () => {
     expect(v.comment).toBe("");
   });
 });
+
+describe("filters", () => {
+  it("byDatasetId filters to a single dataset", () => {
+    expect(byDatasetId(reviews, "global-weather").every((r) => r.datasetId === "global-weather")).toBe(
+      true,
+    );
+  });
+
+  it("byRating filters by exact rating", () => {
+    expect(byRating(reviews, 5).every((r) => r.rating === 5)).toBe(true);
+  });
+});
