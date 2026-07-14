@@ -40,3 +40,10 @@ export function validateCreate(input: CreateReviewInput) {
     comment: assertComment(input.comment),
   };
 }
+
+export function validateUpdate(input: UpdateReviewInput): UpdateReviewInput {
+  const patch: UpdateReviewInput = {};
+  if (input.rating !== undefined) patch.rating = assertRating(input.rating);
+  if (input.comment !== undefined) patch.comment = assertComment(input.comment);
+  return patch;
+}
