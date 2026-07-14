@@ -24,3 +24,12 @@ export function createReview(input: CreateReviewInput): Review {
   };
   return repo.insert(review);
 }
+
+export function listReviews(query: ListQuery = {}): Paginated<Review> {
+  let items = repo.findAll();
+  items = byDatasetId(items, query.datasetId);
+  items = byReviewerId(items, query.reviewerId);
+  items = byRating(items, query.rating);
+  items = sortBy(items, query.sort, query.order);
+  return paginate(items, query.page ?? 1, query.pageSize ?? 20);
+}
