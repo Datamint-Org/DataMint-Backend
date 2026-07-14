@@ -22,3 +22,13 @@ reviews.push({
   createdAt: "2025-01-15T09:30:00.000Z",
   updatedAt: "2025-01-15T09:30:00.000Z",
 });
+
+reviews.push({
+  id: "rv_0003",
+  datasetId: "fx-markets",
+  reviewerId: "user-mrivera",
+  rating: 5,
+  comment: "Sub-second ticks held up perfectly for our backtests across all 28 pairs.",
+  createdAt: "2025-01-20T13:00:00.000Z",
+  updatedAt: "2025-01-20T13:00:00.000Z",
+});
