@@ -62,3 +62,13 @@ reviews.push({
   createdAt: "2025-02-05T17:00:00.000Z",
   updatedAt: "2025-02-05T17:00:00.000Z",
 });
+
+reviews.push({
+  id: "rv_0007",
+  datasetId: "iot-sensors",
+  reviewerId: "user-dpatel",
+  rating: 5,
+  comment: "Vibration telemetry integrated cleanly into our predictive maintenance pipeline.",
+  createdAt: "2025-02-12T07:30:00.000Z",
+  updatedAt: "2025-02-12T07:30:00.000Z",
+});
