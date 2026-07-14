@@ -3,6 +3,7 @@ import cors from "cors";
 import { requestLogger } from "./middleware/requestLogger";
 import { errorHandler } from "./middleware/errorHandler";
 import { datasetsRouter } from "./datasets/routes";
+import { reviewsRouter } from "./reviews/routes";
 
 const app = express();
 app.use(cors());
@@ -14,6 +15,7 @@ app.get("/health", (_req: Request, res: Response) => {
 });
 
 app.use("/api/v1/datasets", datasetsRouter);
+app.use("/api/v1/reviews", reviewsRouter);
 
 app.use(errorHandler);
 
