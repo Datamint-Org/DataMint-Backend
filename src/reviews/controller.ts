@@ -49,3 +49,12 @@ export function updateHandler(req: Request, res: Response, next: NextFunction): 
     next(err);
   }
 }
+
+export function deleteHandler(req: Request, res: Response, next: NextFunction): void {
+  try {
+    service.deleteReview(req.params.id);
+    res.status(204).end();
+  } catch (err) {
+    next(err);
+  }
+}
