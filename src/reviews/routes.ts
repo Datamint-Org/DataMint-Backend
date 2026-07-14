@@ -11,3 +11,4 @@ import {
 export const reviewsRouter = Router();
 
 reviewsRouter.get("/", listHandler);
+reviewsRouter.get("/:id", getHandler);
