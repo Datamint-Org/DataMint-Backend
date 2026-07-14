@@ -123,3 +123,17 @@ describe("missing resources", () => {
     expect(res.body.error).toBe("NotFoundError");
   });
 });
+
+describe("GET /api/v1/reviews/datasets/:datasetId/average", () => {
+  it("returns the average rating for a dataset", async () => {
+    const res = await request(app).get("/api/v1/reviews/datasets/global-weather/average");
+    expect(res.status).toBe(200);
+    expect(res.body.datasetId).toBe("global-weather");
+    expect(res.body.average).toBeGreaterThanOrEqual(1);
+  });
+
+  it("returns 404 for an unknown dataset", async () => {
+    const res = await request(app).get("/api/v1/reviews/datasets/nope/average");
+    expect(res.status).toBe(404);
+  });
+});
