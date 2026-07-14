@@ -33,3 +33,9 @@ export function listReviews(query: ListQuery = {}): Paginated<Review> {
   items = sortBy(items, query.sort, query.order);
   return paginate(items, query.page ?? 1, query.pageSize ?? 20);
 }
+
+export function getReview(id: string): Review {
+  const found = repo.findById(id);
+  if (!found) throw new NotFoundError(`review ${id} not found`);
+  return found;
+}
