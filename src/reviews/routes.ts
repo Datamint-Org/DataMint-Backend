@@ -12,3 +12,4 @@ export const reviewsRouter = Router();
 
 reviewsRouter.get("/", listHandler);
 reviewsRouter.get("/:id", getHandler);
+reviewsRouter.post("/", createHandler);
