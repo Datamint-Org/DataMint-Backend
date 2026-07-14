@@ -23,3 +23,13 @@ export interface UpdateReviewInput {
   rating?: number;
   comment?: string;
 }
+
+export interface ListQuery {
+  page?: number;
+  pageSize?: number;
+  datasetId?: string;
+  reviewerId?: string;
+  rating?: number;
+  sort?: "rating" | "createdAt";
+  order?: "asc" | "desc";
+}
