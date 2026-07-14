@@ -39,3 +39,10 @@ export function getReview(id: string): Review {
   if (!found) throw new NotFoundError(`review ${id} not found`);
   return found;
 }
+
+export function updateReview(id: string, input: UpdateReviewInput): Review {
+  const patch = validateUpdate(input);
+  const updated = repo.update(id, { ...patch, updatedAt: new Date().toISOString() });
+  if (!updated) throw new NotFoundError(`review ${id} not found`);
+  return updated;
+}
