@@ -33,3 +33,11 @@ export function getHandler(req: Request, res: Response, next: NextFunction): voi
     next(err);
   }
 }
+
+export function createHandler(req: Request, res: Response, next: NextFunction): void {
+  try {
+    res.status(201).json(service.createReview(req.body));
+  } catch (err) {
+    next(err);
+  }
+}
