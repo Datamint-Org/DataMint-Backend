@@ -11,3 +11,10 @@ export interface Review {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface CreateReviewInput {
+  datasetId: string;
+  reviewerId: string;
+  rating: number;
+  comment?: string;
+}
