@@ -25,3 +25,11 @@ export function listHandler(req: Request, res: Response, next: NextFunction): vo
     next(err);
   }
 }
+
+export function getHandler(req: Request, res: Response, next: NextFunction): void {
+  try {
+    res.json(service.getReview(req.params.id));
+  } catch (err) {
+    next(err);
+  }
+}
