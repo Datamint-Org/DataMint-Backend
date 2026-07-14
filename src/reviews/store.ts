@@ -4,7 +4,7 @@ import { Review } from "./types";
 export const reviews: Review[] = [];
 
 reviews.push({
-  id: "rv_0001",
+  id: "review-global-weather-1",
   datasetId: "global-weather",
   reviewerId: "user-abarnes",
   rating: 5,
@@ -14,7 +14,7 @@ reviews.push({
 });
 
 reviews.push({
-  id: "rv_0002",
+  id: "review-global-weather-2",
   datasetId: "global-weather",
   reviewerId: "user-jchen",
   rating: 4,
@@ -24,7 +24,7 @@ reviews.push({
 });
 
 reviews.push({
-  id: "rv_0003",
+  id: "review-fx-markets",
   datasetId: "fx-markets",
   reviewerId: "user-mrivera",
   rating: 5,
@@ -34,7 +34,7 @@ reviews.push({
 });
 
 reviews.push({
-  id: "rv_0004",
+  id: "review-genomics-panel",
   datasetId: "genomics-panel",
   reviewerId: "user-plopez",
   rating: 3,
@@ -44,7 +44,7 @@ reviews.push({
 });
 
 reviews.push({
-  id: "rv_0005",
+  id: "review-energy-grid",
   datasetId: "energy-grid",
   reviewerId: "user-tkim",
   rating: 4,
@@ -54,7 +54,7 @@ reviews.push({
 });
 
 reviews.push({
-  id: "rv_0006",
+  id: "review-urban-mobility",
   datasetId: "urban-mobility",
   reviewerId: "user-swong",
   rating: 2,
@@ -64,7 +64,7 @@ reviews.push({
 });
 
 reviews.push({
-  id: "rv_0007",
+  id: "review-iot-sensors",
   datasetId: "iot-sensors",
   reviewerId: "user-dpatel",
   rating: 5,
