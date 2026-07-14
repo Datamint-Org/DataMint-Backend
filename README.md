@@ -4,8 +4,9 @@ API gateway and services for **DataMint**: dataset minting, access control, and 
 
 ## What’s in this repo
 
-- REST API with health and datasets endpoints
+- REST API with health, datasets and reviews endpoints
 - In-memory dataset catalog with CRUD, validation, pagination, search and filtering
+- In-memory dataset reviews and ratings with CRUD, validation, pagination and filtering
 - TypeScript, Jest for tests, ESLint
 - Ready for Stellar Horizon integration and dataset/license logic
 
@@ -23,6 +24,22 @@ Base path: `/api/v1/datasets`
 
 List responses include `datasets`, `total`, `page`, `pageSize` and `totalPages`.
 Validation failures return `400`, unknown ids return `404`.
+
+## Reviews API
+
+Base path: `/api/v1/reviews`
+
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET` | `/` | List reviews. Supports `page`, `pageSize`, `datasetId`, `reviewerId`, `rating`, `sort` (`rating`\|`createdAt`), `order` (`asc`\|`desc`). |
+| `GET` | `/:id` | Fetch a single review by id. |
+| `POST` | `/` | Create a review. Requires `datasetId`, `reviewerId`, `rating` (integer 1-5). Rejects with `404` if the dataset does not exist. |
+| `PATCH` | `/:id` | Update a review's `rating` and/or `comment`. |
+| `DELETE` | `/:id` | Remove a review. |
+| `GET` | `/datasets/:datasetId/average` | Convenience endpoint returning the average `rating` and review `count` for a dataset. |
+
+List responses include `reviews`, `total`, `page`, `pageSize` and `totalPages`.
+Validation failures return `400`, unknown ids (review or dataset) return `404`.
 
 ## Prerequisites
 
