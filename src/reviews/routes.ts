@@ -14,3 +14,4 @@ reviewsRouter.get("/", listHandler);
 reviewsRouter.get("/:id", getHandler);
 reviewsRouter.post("/", createHandler);
 reviewsRouter.patch("/:id", updateHandler);
+reviewsRouter.delete("/:id", deleteHandler);
