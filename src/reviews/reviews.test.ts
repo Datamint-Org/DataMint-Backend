@@ -115,3 +115,11 @@ describe("DELETE /api/v1/reviews/:id", () => {
     expect(res.status).toBe(204);
   });
 });
+
+describe("missing resources", () => {
+  it("GET unknown id returns 404", async () => {
+    const res = await request(app).get("/api/v1/reviews/nope");
+    expect(res.status).toBe(404);
+    expect(res.body.error).toBe("NotFoundError");
+  });
+});
