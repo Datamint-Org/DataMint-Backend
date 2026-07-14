@@ -15,3 +15,4 @@ reviewsRouter.get("/:id", getHandler);
 reviewsRouter.post("/", createHandler);
 reviewsRouter.patch("/:id", updateHandler);
 reviewsRouter.delete("/:id", deleteHandler);
+reviewsRouter.get("/datasets/:datasetId/average", averageHandler);
