@@ -57,3 +57,20 @@ describe("service", () => {
     expect(avg.average).toBeLessThanOrEqual(5);
   });
 });
+
+describe("GET /api/v1/reviews", () => {
+  it("returns a reviews array with pagination metadata", async () => {
+    const res = await request(app).get("/api/v1/reviews");
+    expect(res.status).toBe(200);
+    expect(Array.isArray(res.body.reviews)).toBe(true);
+    expect(res.body).toHaveProperty("totalPages");
+  });
+
+  it("supports datasetId filtering", async () => {
+    const res = await request(app).get("/api/v1/reviews?datasetId=iot-sensors");
+    expect(res.status).toBe(200);
+    expect(res.body.reviews.every((r: { datasetId: string }) => r.datasetId === "iot-sensors")).toBe(
+      true,
+    );
+  });
+});
