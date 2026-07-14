@@ -52,3 +52,13 @@ reviews.push({
   createdAt: "2025-02-01T12:15:00.000Z",
   updatedAt: "2025-02-01T12:15:00.000Z",
 });
+
+reviews.push({
+  id: "rv_0006",
+  datasetId: "urban-mobility",
+  reviewerId: "user-swong",
+  rating: 2,
+  comment: "GPS traces are useful but sampling frequency varies a lot from city to city.",
+  createdAt: "2025-02-05T17:00:00.000Z",
+  updatedAt: "2025-02-05T17:00:00.000Z",
+});
