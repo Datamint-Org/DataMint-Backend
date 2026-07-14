@@ -32,3 +32,13 @@ reviews.push({
   createdAt: "2025-01-20T13:00:00.000Z",
   updatedAt: "2025-01-20T13:00:00.000Z",
 });
+
+reviews.push({
+  id: "rv_0004",
+  datasetId: "genomics-panel",
+  reviewerId: "user-plopez",
+  rating: 3,
+  comment: "Solid cohort size, but documentation on the variant calling pipeline could be clearer.",
+  createdAt: "2025-01-25T08:45:00.000Z",
+  updatedAt: "2025-01-25T08:45:00.000Z",
+});
