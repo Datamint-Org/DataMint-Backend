@@ -14,3 +14,10 @@ export function assertReviewerId(reviewerId: unknown): string {
   }
   return reviewerId.trim();
 }
+
+export function assertRating(rating: unknown): Rating {
+  if (typeof rating !== "number" || !Number.isInteger(rating) || rating < 1 || rating > 5) {
+    throw new ValidationError("rating must be an integer between 1 and 5");
+  }
+  return rating as Rating;
+}
