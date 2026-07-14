@@ -7,3 +7,10 @@ export function assertDatasetId(datasetId: unknown): string {
   }
   return datasetId.trim();
 }
+
+export function assertReviewerId(reviewerId: unknown): string {
+  if (typeof reviewerId !== "string" || reviewerId.trim().length === 0) {
+    throw new ValidationError("reviewerId is required");
+  }
+  return reviewerId.trim();
+}
