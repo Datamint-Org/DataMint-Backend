@@ -4,3 +4,8 @@ export function byDatasetId(items: Review[], datasetId?: string): Review[] {
   if (!datasetId) return items;
   return items.filter((r) => r.datasetId === datasetId);
 }
+
+export function byReviewerId(items: Review[], reviewerId?: string): Review[] {
+  if (!reviewerId) return items;
+  return items.filter((r) => r.reviewerId === reviewerId);
+}
