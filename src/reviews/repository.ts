@@ -13,3 +13,7 @@ export function findAll(): Review[] {
 export function findById(id: string): Review | undefined {
   return reviews.find((r) => r.id === id);
 }
+
+export function findByDatasetId(datasetId: string): Review[] {
+  return reviews.filter((r) => r.datasetId === datasetId);
+}
