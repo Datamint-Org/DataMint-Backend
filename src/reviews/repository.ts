@@ -9,3 +9,7 @@ export function insert(review: Review): Review {
 export function findAll(): Review[] {
   return [...reviews];
 }
+
+export function findById(id: string): Review | undefined {
+  return reviews.find((r) => r.id === id);
+}
