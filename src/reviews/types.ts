@@ -33,3 +33,9 @@ export interface ListQuery {
   sort?: "rating" | "createdAt";
   order?: "asc" | "desc";
 }
+
+export interface AverageRating {
+  datasetId: string;
+  average: number;
+  count: number;
+}
