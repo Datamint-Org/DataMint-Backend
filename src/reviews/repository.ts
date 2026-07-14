@@ -17,3 +17,10 @@ export function findById(id: string): Review | undefined {
 export function findByDatasetId(datasetId: string): Review[] {
   return reviews.filter((r) => r.datasetId === datasetId);
 }
+
+export function update(id: string, patch: Partial<Review>): Review | undefined {
+  const existing = reviews.find((r) => r.id === id);
+  if (!existing) return undefined;
+  Object.assign(existing, patch);
+  return existing;
+}
