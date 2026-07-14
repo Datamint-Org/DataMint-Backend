@@ -74,3 +74,21 @@ describe("GET /api/v1/reviews", () => {
     );
   });
 });
+
+describe("POST /api/v1/reviews", () => {
+  it("creates a review and returns 201", async () => {
+    const res = await request(app)
+      .post("/api/v1/reviews")
+      .send({ datasetId: "energy-grid", reviewerId: "http-user", rating: 5 });
+    expect(res.status).toBe(201);
+    expect(res.body.id).toBeDefined();
+  });
+
+  it("rejects invalid ratings with 400", async () => {
+    const res = await request(app)
+      .post("/api/v1/reviews")
+      .send({ datasetId: "energy-grid", reviewerId: "http-user", rating: 9 });
+    expect(res.status).toBe(400);
+    expect(res.body.error).toBe("ValidationError");
+  });
+});
