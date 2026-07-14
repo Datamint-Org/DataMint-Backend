@@ -105,3 +105,13 @@ describe("PATCH /api/v1/reviews/:id", () => {
     expect(res.body.rating).toBe(5);
   });
 });
+
+describe("DELETE /api/v1/reviews/:id", () => {
+  it("deletes a review and returns 204", async () => {
+    const created = await request(app)
+      .post("/api/v1/reviews")
+      .send({ datasetId: "genomics-panel", reviewerId: "delete-user", rating: 3 });
+    const res = await request(app).delete(`/api/v1/reviews/${created.body.id}`);
+    expect(res.status).toBe(204);
+  });
+});
