@@ -31,3 +31,12 @@ export function assertComment(comment: unknown): string {
   }
   return comment;
 }
+
+export function validateCreate(input: CreateReviewInput) {
+  return {
+    datasetId: assertDatasetId(input.datasetId),
+    reviewerId: assertReviewerId(input.reviewerId),
+    rating: assertRating(input.rating),
+    comment: assertComment(input.comment),
+  };
+}
