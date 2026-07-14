@@ -92,3 +92,16 @@ describe("POST /api/v1/reviews", () => {
     expect(res.body.error).toBe("ValidationError");
   });
 });
+
+describe("PATCH /api/v1/reviews/:id", () => {
+  it("updates a review's rating and comment", async () => {
+    const created = await request(app)
+      .post("/api/v1/reviews")
+      .send({ datasetId: "urban-mobility", reviewerId: "patch-user", rating: 2 });
+    const res = await request(app)
+      .patch(`/api/v1/reviews/${created.body.id}`)
+      .send({ rating: 5, comment: "Updated my mind after digging deeper into the traces." });
+    expect(res.status).toBe(200);
+    expect(res.body.rating).toBe(5);
+  });
+});
