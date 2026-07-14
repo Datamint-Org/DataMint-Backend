@@ -32,3 +32,28 @@ describe("filters", () => {
     expect(byRating(reviews, 5).every((r) => r.rating === 5)).toBe(true);
   });
 });
+
+describe("service", () => {
+  it("createReview assigns an id and timestamps", () => {
+    const created = service.createReview({ datasetId: "global-weather", reviewerId: "svc-user", rating: 4 });
+    expect(created.id).toMatch(/^rv_/);
+    expect(service.getReview(created.id).reviewerId).toBe("svc-user");
+  });
+
+  it("createReview rejects reviews for unknown datasets", () => {
+    expect(() =>
+      service.createReview({ datasetId: "does-not-exist", reviewerId: "svc-user", rating: 4 }),
+    ).toThrow(NotFoundError);
+  });
+
+  it("getReview throws for missing ids", () => {
+    expect(() => service.getReview("does-not-exist")).toThrow();
+  });
+
+  it("averageRatingForDataset computes the mean rating", () => {
+    const avg = service.averageRatingForDataset("fx-markets");
+    expect(avg.count).toBeGreaterThan(0);
+    expect(avg.average).toBeGreaterThanOrEqual(1);
+    expect(avg.average).toBeLessThanOrEqual(5);
+  });
+});
