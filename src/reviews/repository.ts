@@ -24,3 +24,10 @@ export function update(id: string, patch: Partial<Review>): Review | undefined {
   Object.assign(existing, patch);
   return existing;
 }
+
+export function remove(id: string): boolean {
+  const idx = reviews.findIndex((r) => r.id === id);
+  if (idx === -1) return false;
+  reviews.splice(idx, 1);
+  return true;
+}
