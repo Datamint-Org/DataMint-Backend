@@ -9,3 +9,5 @@ import {
 } from "./controller";
 
 export const reviewsRouter = Router();
+
+reviewsRouter.get("/", listHandler);
